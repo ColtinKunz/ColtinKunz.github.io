@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  psql:
+    image: postgres:13.3
+    container_name: test-psql
+    environment: &dbConfig
+      POSTGRES_DB: database
+      POSTGRES_USER: database_admin
+      POSTGRES_PASSWORD: secret_password
+      POSTGRES_PORT: '5432'
+  backend:
+    build:
+      context: "."
+      dockerfile: dev.Dockerfile
+    container_name: test-backend
+    command: ["python", "-m", "pytest"]
+    env_file: .env
+    environment:
+      POSTGRES_HOST: psql
+      <<: *dbConfig
+    depends_on:
+      - psql
+    volumes:
+      - ./backend:/app

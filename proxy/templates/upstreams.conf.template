@@ -1,0 +1,7 @@
+upstream backend {
+    server ${BACKEND_DOMAIN}:${BACKEND_PORT};
+}
+
+upstream frontend {
+    server ${FRONTEND_DOMAIN}:${FRONTEND_PORT};
+}

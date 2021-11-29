@@ -1,0 +1,2 @@
+include /etc/nginx/conf.d/upstreams.conf;
+include /etc/nginx/conf.d/ssl_${USE_SSL}.conf;

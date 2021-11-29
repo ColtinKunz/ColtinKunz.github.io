@@ -1,0 +1,6 @@
+*.env
+*Dockerfile
+.gitignore
+.pytest_cache
+.venv
+Pipfile*

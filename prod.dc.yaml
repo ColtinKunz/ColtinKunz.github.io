@@ -1,0 +1,50 @@
+version: "3"
+
+services:
+  psql:
+    image: postgres:13.3
+    container_name: psql
+    environment: &dbConfig
+      POSTGRES_DB: database
+      POSTGRES_USER: database_admin
+      POSTGRES_PASSWORD: secret_password
+      POSTGRES_PORT: '5432'
+    ports:
+      - "5432:5432"
+  backend:
+    build:
+      context: "./backend"
+      dockerfile: Dockerfile
+    container_name: backend
+    env_file: ./backend/.env
+    environment:
+      POSTGRES_HOST: psql
+      <<: *dbConfig
+    ports:
+      - "8000:80"
+    depends_on:
+      - psql
+    restart: on-failure
+  frontend:
+    build:
+      context: "./frontend"
+      dockerfile: Dockerfile
+    container_name: frontend
+    env_file: ./frontend/.env.development
+    ports:
+      - "3000:80"
+    restart: on-failure
+  proxy:
+    build:
+      context: "./proxy"
+      dockerfile: dev.Dockerfile
+    container_name: proxy
+    env_file: ./proxy/.env
+    ports:
+      - "80:80"
+    restart: on-failure
+    volumes:
+      - ./proxy/credentials:/etc/nginx/credentials
+    depends_on:
+      - backend
+      - frontend

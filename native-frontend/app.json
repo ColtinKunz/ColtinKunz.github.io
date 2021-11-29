@@ -1,0 +1,9 @@
+{
+  "expo": {
+    "name": "native-frontend",
+    "slug": "native-frontend",
+    "version": "1.0.0",
+    "assetBundlePatterns": ["**/*"]
+  },
+  "name": "native-frontend"
+}

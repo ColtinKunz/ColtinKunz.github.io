@@ -1,0 +1,15 @@
+[run]
+omit =
+    .cache/*
+    .venv/*
+    */tests/*
+    */migrations/*
+    backend/*
+    manage.py
+    run.py
+
+[html]
+directory = htmlcov
+
+[report]
+fail_under = 100

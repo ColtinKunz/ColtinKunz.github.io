@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+psycopg2-binary = "*"
+whitenoise = "*"
+djangorestframework = "*"
+djangorestframework-simplejwt = "*"
+daphne = "*"
+django-cors-headers = "*"
+
+[dev-packages]
+mixer = "*"
+pytest = "*"
+pytest-cov = "*"
+coverage = "*"
+pytest-django = "*"
+
+[requires]
+python_version = "3.9"
