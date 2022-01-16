@@ -43,3 +43,10 @@ class User(AbstractUser, Base):
 
             self.password = make_password(self.password)
         super().save(*args, **kwargs)
+
+
+class Word(Base):
+    text = models.CharField(max_length=5, unique=True)
+
+    def __str__(self):
+        return self.text
