@@ -11,6 +11,7 @@ djangorestframework = "*"
 djangorestframework-simplejwt = "*"
 daphne = "*"
 django-cors-headers = "*"
+requests = "*"
 
 [dev-packages]
 mixer = "*"
