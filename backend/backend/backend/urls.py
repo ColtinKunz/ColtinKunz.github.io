@@ -26,6 +26,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("auth/", include("jwt_auth.urls")),
     path("", include("main.urls")),
+    path("calendar/", include("shared_calendar.urls")),
 ]
 if settings.DEBUG:
     urlpatterns += [path("api-auth/", include("rest_framework.urls"))]
