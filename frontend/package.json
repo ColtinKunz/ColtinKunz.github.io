@@ -1,6 +1,7 @@
 {
   "name": "temp",
   "version": "0.1.0",
+  "homepage": "https://coltinkunz.com",
   "engines": {
     "npm": "7.15.1",
     "node": "16.3.0"
@@ -20,6 +21,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "env-cmd -f .env.development react-scripts start",
     "build": "react-scripts build",
     "build:production": "env-cmd -f .env.production react-scripts build",
@@ -56,6 +59,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "gh-pages": "^4.0.0",
     "react-test-renderer": "^17.0.2"
   }
 }
