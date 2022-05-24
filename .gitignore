@@ -1,3 +1,6 @@
 # Ignore local postgres data
 redis-data
 psql-data
+
+# Ignore frontend built assets
+frontend/build/*
